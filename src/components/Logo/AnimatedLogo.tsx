@@ -1,4 +1,4 @@
-import { Heart, Coffee } from "lucide-react";
+import { Heart, Coffee } from 'lucide-react';
 
 interface AnimatedLogoProps {
   show: boolean;
@@ -9,7 +9,7 @@ export const AnimatedLogo = ({ show, showSteam }: AnimatedLogoProps) => {
   return (
     <div
       className={`relative z-10 mb-6 transition-all duration-1000 ${
-        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
       <div className="relative">
@@ -27,7 +27,7 @@ export const AnimatedLogo = ({ show, showSteam }: AnimatedLogoProps) => {
                 {Array.from({ length: 8 }, (_, i) => (
                   <div
                     key={i}
-                    className="absolute w-1 h-8 bg-gradient-to-t from-white/40 to-transparent rounded-full animate-steam"
+                    className="absolute w-1 h-8 bg-linear-to-t from-white/40 to-transparent rounded-full animate-steam"
                     style={{
                       left: `${i * 3}px`,
                       animationDelay: `${i * 0.2}s`,
@@ -39,7 +39,7 @@ export const AnimatedLogo = ({ show, showSteam }: AnimatedLogoProps) => {
 
               <div
                 className="absolute -top-8 left-1 animate-fadeInHeart"
-                style={{ animationDelay: "1.5s" }}
+                style={{ animationDelay: '1.5s' }}
               >
                 <Heart
                   className="w-6 h-6 text-sage-green fill-current animate-pulse"
