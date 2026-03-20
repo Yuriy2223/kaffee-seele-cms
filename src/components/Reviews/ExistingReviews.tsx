@@ -1,0 +1,21 @@
+import { ReviewCard } from "./ReviewCard";
+import { Review } from "./Reviews";
+
+interface ExistingReviewsProps {
+  reviews: Review[];
+}
+
+export const ExistingReviews: React.FC<ExistingReviewsProps> = ({
+  reviews,
+}) => (
+  <div className="lg:col-span-2">
+    <h4 className="text-2xl font-semibold text-sage-green mb-8 text-center">
+      Що кажуть наші гості
+    </h4>
+    <div className="grid md:grid-cols-2 gap-6">
+      {reviews.map((review, index) => (
+        <ReviewCard key={review._id || review.id || index} review={review} />
+      ))}
+    </div>
+  </div>
+);

@@ -1,1 +1,0 @@
-# kaffee-seele-cms
