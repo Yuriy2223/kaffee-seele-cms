@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Heart, Star, Coffee, ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from 'react';
+import { Heart, Star, Coffee, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   Navigation,
   Pagination,
   EffectCoverflow,
   Autoplay,
-} from "swiper/modules";
-import { useTeamMembers } from "@/hooks/useMenu";
+} from 'swiper/modules';
+import { useTeamMembers } from '@/hooks/useMenu';
 
 export const TeamCarousel = () => {
   const { data: teamMembersData, isLoading } = useTeamMembers();
@@ -19,7 +19,7 @@ export const TeamCarousel = () => {
   const teamMembers = teamMembersData || [];
 
   const handleCardFlip = (id: string) => {
-    setFlippedCards((prev) => {
+    setFlippedCards(prev => {
       const newSet = new Set(prev);
       if (newSet.has(id)) {
         newSet.delete(id);
@@ -56,10 +56,10 @@ export const TeamCarousel = () => {
 
       <div className="relative">
         <Swiper
-          effect={"coverflow"}
+          effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={"auto"}
+          slidesPerView={'auto'}
           speed={2000}
           coverflowEffect={{
             rotate: 50,
@@ -73,23 +73,23 @@ export const TeamCarousel = () => {
             disableOnInteraction: false,
           }}
           navigation={{
-            nextEl: ".team-swiper-button-next",
-            prevEl: ".team-swiper-button-prev",
+            nextEl: '.team-swiper-button-next',
+            prevEl: '.team-swiper-button-prev',
           }}
           pagination={{
             clickable: true,
-            bulletClass: "swiper-pagination-bullet",
-            bulletActiveClass: "swiper-pagination-bullet-active",
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
           }}
           modules={[Navigation, Pagination, EffectCoverflow, Autoplay]}
           className="team-swiper"
           breakpoints={{
             320: {
-              slidesPerView: "auto",
+              slidesPerView: 'auto',
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: "auto",
+              slidesPerView: 'auto',
               spaceBetween: 30,
             },
           }}
@@ -103,16 +103,17 @@ export const TeamCarousel = () => {
                 <div
                   className="relative w-full h-full cursor-pointer"
                   onClick={() => handleCardFlip(memberId)}
-                  style={{ perspective: "1000px" }}
+                  style={{ perspective: '1000px' }}
                 >
                   <div
-                    className={`w-full h-full transition-transform duration-700 relative ${isFlipped ? "rotate-y-180" : ""
-                      }`}
-                    style={{ transformStyle: "preserve-3d" }}
+                    className={`w-full h-full transition-transform duration-700 relative ${
+                      isFlipped ? 'rotate-y-180' : ''
+                    }`}
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     <div
                       className="absolute inset-0 bg-white rounded-2xl shadow-xl overflow-hidden"
-                      style={{ backfaceVisibility: "hidden" }}
+                      style={{ backfaceVisibility: 'hidden' }}
                     >
                       <div className="relative">
                         <Image
@@ -152,8 +153,8 @@ export const TeamCarousel = () => {
                     <div
                       className="absolute inset-0 bg-gradient-to-br from-sage-green/10 to-warm-brown/10 rounded-2xl shadow-xl overflow-hidden"
                       style={{
-                        backfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)",
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)',
                       }}
                     >
                       <div className="p-6 h-full flex flex-col">
@@ -199,17 +200,20 @@ export const TeamCarousel = () => {
                               Досягнення:
                             </span>
                             <div className="space-y-1">
-                              {Array.isArray(member.achievements) && member.achievements.map((achievement: string, idx: number) => (
-                                <div
-                                  key={idx}
-                                  className="flex items-start text-xs"
-                                >
-                                  <Star className="w-3 h-3 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                                  <span className="text-gray-600 leading-tight">
-                                    {achievement}
-                                  </span>
-                                </div>
-                              ))}
+                              {Array.isArray(member.achievements) &&
+                                member.achievements.map(
+                                  (achievement: string, idx: number) => (
+                                    <div
+                                      key={idx}
+                                      className="flex items-start text-xs"
+                                    >
+                                      <Star className="w-3 h-3 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                                      <span className="text-gray-600 leading-tight">
+                                        {achievement}
+                                      </span>
+                                    </div>
+                                  )
+                                )}
                             </div>
                           </div>
 
@@ -218,7 +222,9 @@ export const TeamCarousel = () => {
                               Хобі:
                             </span>
                             <p className="text-gray-600 text-xs leading-relaxed">
-                              {Array.isArray(member.hobbies) ? member.hobbies.join(", ") : member.hobbies}
+                              {Array.isArray(member.hobbies)
+                                ? member.hobbies.join(', ')
+                                : member.hobbies}
                             </p>
                           </div>
                         </div>
