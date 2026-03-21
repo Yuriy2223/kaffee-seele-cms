@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Container } from "@/shared/Container";
-import { useContacts } from "@/hooks/useMenu";
-import { HeaderPokicy } from "@/components/Header/HeaderPokicy";
+import { Container } from '@/shared/Container';
+import { useContacts } from '@/hooks/useMenu';
+import { HeaderPokicy } from '@/components/Header/HeaderPokicy';
 import {
   FileText,
   Mail,
@@ -10,16 +10,17 @@ import {
   MapPin,
   AlertCircle,
   CheckCircle,
-} from "lucide-react";
+} from 'lucide-react';
 
 export default function TermsOfUse() {
   const { data: contacts, isLoading, error } = useContacts();
 
-  if (isLoading) return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="w-10 h-10 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  );
+  if (isLoading)
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-10 h-10 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
 
   if (error || !contacts) return null;
 
@@ -132,10 +133,10 @@ export default function TermsOfUse() {
                   </h3>
                   <div className="space-y-2">
                     {[
-                      "Вільний доступ до публічного контенту Сайту",
-                      "Можливість залишати коментарі та відгуки",
-                      "Підписка на новини та оновлення",
-                      "Звернення з питаннями та пропозиціями",
+                      'Вільний доступ до публічного контенту Сайту',
+                      'Можливість залишати коментарі та відгуки',
+                      'Підписка на новини та оновлення',
+                      'Звернення з питаннями та пропозиціями',
                     ].map((right, index) => (
                       <div
                         key={index}
@@ -154,10 +155,10 @@ export default function TermsOfUse() {
                   </h3>
                   <div className="space-y-2">
                     {[
-                      "Не порушувати законодавство України",
-                      "Поважати права інших користувачів",
-                      "Не розміщувати неприйнятний контент",
-                      "Надавати достовірну інформацію при реєстрації",
+                      'Не порушувати законодавство України',
+                      'Поважати права інших користувачів',
+                      'Не розміщувати неприйнятний контент',
+                      'Надавати достовірну інформацію при реєстрації',
                     ].map((duty, index) => (
                       <div
                         key={index}
@@ -292,10 +293,10 @@ export default function TermsOfUse() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    "Точність, повноту або актуальність інформації",
-                    "Збитки, що можуть виникнути від використання інформації",
-                    "Роботу зовнішніх посилань та ресурсів",
-                    "Тимчасову недоступність Сайту через технічні причини",
+                    'Точність, повноту або актуальність інформації',
+                    'Збитки, що можуть виникнути від використання інформації',
+                    'Роботу зовнішніх посилань та ресурсів',
+                    'Тимчасову недоступність Сайту через технічні причини',
                   ].map((disclaimer, index) => (
                     <div
                       key={index}
