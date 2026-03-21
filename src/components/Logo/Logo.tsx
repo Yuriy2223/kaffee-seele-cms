@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Coffee, Leaf } from "lucide-react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Coffee, Leaf } from 'lucide-react';
 
 export const Logo = () => {
   const pathname = usePathname();
 
   const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (pathname === "/") {
+  if (pathname === '/') {
     return (
       <button onClick={scrollTop} className="flex items-center space-x-3">
         <div
