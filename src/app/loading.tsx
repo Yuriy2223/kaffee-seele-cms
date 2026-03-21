@@ -1,4 +1,4 @@
-import { LogoDecorative } from "@/components/Logo/LogoDecorative";
+import { LogoDecorative } from '@/components/Logo/LogoDecorative';
 
 export default function Loading() {
   return (
