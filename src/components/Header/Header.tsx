@@ -91,7 +91,7 @@ export const Header = () => {
         </Container>
 
         <div
-          className={`lg:hidden absolute top-full left-0 w-full transition-all duration-500 ease-[var(--ease-spring)] ${
+          className={`lg:hidden absolute top-full left-0 w-full transition-all duration-500 ease-spring ${
             isMenuOpen
               ? 'opacity-100 translate-y-0 pointer-events-auto'
               : 'opacity-0 -translate-y-4 pointer-events-none'
