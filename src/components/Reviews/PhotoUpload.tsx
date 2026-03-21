@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
-import { X, Camera } from "lucide-react";
-import Image from "next/image";
+import React, { useState, useRef } from 'react';
+import { X, Camera } from 'lucide-react';
+import Image from 'next/image';
 
 interface PhotoUploadProps {
   onPhotoUpload: (photoUrl: string) => void;
@@ -24,15 +24,15 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
     if (!file) return;
 
     const maxSize = 5 * 1024 * 1024;
-    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
     if (!allowedTypes.includes(file.type)) {
-      setUploadError("Підтримуються тільки JPEG, PNG та WebP формати");
+      setUploadError('Підтримуються тільки JPEG, PNG та WebP формати');
       return;
     }
 
     if (file.size > maxSize) {
-      setUploadError("Розмір файлу не повинен перевищувати 5MB");
+      setUploadError('Розмір файлу не повинен перевищувати 5MB');
       return;
     }
 
@@ -40,7 +40,7 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
     const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
     if (!cloudName || !uploadPreset) {
-      setUploadError("Помилка конфігурації. Зверніться до адміністратора.");
+      setUploadError('Помилка конфігурації. Зверніться до адміністратора.');
       return;
     }
 
@@ -49,39 +49,39 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
 
     try {
       const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", uploadPreset);
-      formData.append("folder", uploadPreset);
+      formData.append('file', file);
+      formData.append('upload_preset', uploadPreset);
+      formData.append('folder', uploadPreset);
 
       const response = await fetch(
         `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         {
-          method: "POST",
+          method: 'POST',
           body: formData,
         }
       );
 
       if (!response.ok) {
-        throw new Error("Помилка завантаження фото");
+        throw new Error('Помилка завантаження фото');
       }
 
       const data = await response.json();
       const optimizedUrl = data.secure_url.replace(
-        "/upload/",
-        "/upload/w_160,h_160,c_fill,g_auto,q_auto,f_auto/"
+        '/upload/',
+        '/upload/w_160,h_160,c_fill,g_auto,q_auto,f_auto/'
       );
       onPhotoUpload(optimizedUrl);
     } catch {
-      setUploadError("Не вдалося завантажити фото. Спробуйте ще раз.");
+      setUploadError('Не вдалося завантажити фото. Спробуйте ще раз.');
     } finally {
       setIsUploading(false);
     }
   };
 
   const handleRemovePhoto = () => {
-    onPhotoUpload("");
+    onPhotoUpload('');
     if (fileInputRef.current) {
-      fileInputRef.current.value = "";
+      fileInputRef.current.value = '';
     }
   };
 
@@ -101,7 +101,7 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
                 width={80}
                 height={80}
                 className="rounded-full object-cover border-2 border-brown-200 shadow-md aspect-square"
-                style={{ objectPosition: "center center" }}
+                style={{ objectPosition: 'center center' }}
               />
               {!disabled && !isUploading && (
                 <button
@@ -124,8 +124,8 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
               <div
                 className={`w-20 h-20 rounded-full flex items-center justify-center border-2 border-dashed transition-colors ${
                   isUploading
-                    ? "bg-blue-50 border-warm-brown/30"
-                    : "bg-gray-50 border-gray-300 hover:bg-gray-100 hover:border-gray-400"
+                    ? 'bg-blue-50 border-warm-brown/30'
+                    : 'bg-gray-50 border-gray-300 hover:bg-gray-100 hover:border-gray-400'
                 }`}
               >
                 {isUploading ? (
