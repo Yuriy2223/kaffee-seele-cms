@@ -1,5 +1,5 @@
-import { ReviewCard } from "./ReviewCard";
-import { Review } from "./Reviews";
+import { ReviewCard } from './ReviewCard';
+import { Review } from './Reviews';
 
 interface ExistingReviewsProps {
   reviews: Review[];
