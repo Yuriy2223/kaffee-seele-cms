@@ -1,10 +1,10 @@
-import { useRef, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { X, User, Mail, Phone } from "lucide-react";
-import { toast } from "react-toastify";
-import { Event } from "./Events";
+import { useRef, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { X, User, Mail, Phone } from 'lucide-react';
+import { toast } from 'react-toastify';
+import { Event } from './Events';
 
 interface EventsModalProps {
   isOpen: boolean;
@@ -32,13 +32,13 @@ const validationSchema = yup.object().shape({
   email: yup
     .string()
     .required("Email обов'язковий")
-    .email("Введіть коректний email")
-    .max(100, "Email не повинен перевищувати 100 символів"),
+    .email('Введіть коректний email')
+    .max(100, 'Email не повинен перевищувати 100 символів'),
 
   phone: yup
     .string()
     .required("Номер телефону обов'язковий")
-    .matches(/^(\+38)?[0-9]{10}$/, "Введіть коректний номер телефону"),
+    .matches(/^(\+38)?[0-9]{10}$/, 'Введіть коректний номер телефону'),
 });
 
 export const EventsModal: React.FC<EventsModalProps> = ({
@@ -57,23 +57,23 @@ export const EventsModal: React.FC<EventsModalProps> = ({
     clearErrors,
   } = useForm<FormData>({
     resolver: yupResolver(validationSchema),
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
+      name: '',
+      email: '',
+      phone: '',
     },
   });
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => setFocus("name"), 100);
+      setTimeout(() => setFocus('name'), 100);
     }
   }, [isOpen, setFocus]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent): void => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         onClose();
       }
     };
@@ -85,15 +85,15 @@ export const EventsModal: React.FC<EventsModalProps> = ({
     };
 
     if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
+      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "unset";
+      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
 
@@ -105,17 +105,17 @@ export const EventsModal: React.FC<EventsModalProps> = ({
 
   const onSubmit = async (_data: FormData): Promise<void> => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      toast.success("Реєстрація успішна! Очікуйте підтвердження на email");
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast.success('Реєстрація успішна! Очікуйте підтвердження на email');
       reset();
       onClose();
     } catch {
-      toast.error("Виникла помилка. Спробуйте ще раз");
+      toast.error('Виникла помилка. Спробуйте ще раз');
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, action: () => void): void => {
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       action();
     }
@@ -140,7 +140,7 @@ export const EventsModal: React.FC<EventsModalProps> = ({
           </h2>
           <button
             onClick={handleClose}
-            onKeyDown={(e) => handleKeyDown(e, handleClose)}
+            onKeyDown={e => handleKeyDown(e, handleClose)}
             className="p-2 rounded-full text-warm-brown hover:text-sage-green transition-colors"
             aria-label="Закрити модальне вікно"
             tabIndex={0}
@@ -153,11 +153,11 @@ export const EventsModal: React.FC<EventsModalProps> = ({
           <h3 className="font-semibold mb-2 text-warm-brown">{event?.title}</h3>
           <p className="text-sage-green">
             {event?.date &&
-              new Date(event.date).toLocaleDateString("uk-UA", {
-                day: "numeric",
-                month: "long",
-                weekday: "long",
-              })}{" "}
+              new Date(event.date).toLocaleDateString('uk-UA', {
+                day: 'numeric',
+                month: 'long',
+                weekday: 'long',
+              })}{' '}
             • {event?.time}
           </p>
           <p className="font-bold text-lg mt-2 text-sage-green">
@@ -175,16 +175,16 @@ export const EventsModal: React.FC<EventsModalProps> = ({
               Ім&apos;я та прізвище
             </label>
             <input
-              {...register("name")}
+              {...register('name')}
               type="text"
               id="name"
               className={`w-full px-4 py-3 border-2 ${
-                errors.name ? "border-red-500" : "border-gray-200"
+                errors.name ? 'border-red-500' : 'border-gray-200'
               } bg-muted-green rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-brown transition-colors`}
               placeholder="Введіть ваше повне ім'я"
               tabIndex={0}
-              aria-invalid={errors.name ? "true" : "false"}
-              aria-describedby={errors.name ? "name-error" : undefined}
+              aria-invalid={errors.name ? 'true' : 'false'}
+              aria-describedby={errors.name ? 'name-error' : undefined}
             />
             <div className="h-5 mt-1">
               {errors.name && (
@@ -208,16 +208,16 @@ export const EventsModal: React.FC<EventsModalProps> = ({
               Email your@email.com
             </label>
             <input
-              {...register("email")}
+              {...register('email')}
               type="email"
               id="email"
               className={`w-full px-4 py-3 border-2 ${
-                errors.email ? "border-red-500" : "border-gray-200"
+                errors.email ? 'border-red-500' : 'border-gray-200'
               } bg-muted-green rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-brown transition-colors`}
               placeholder="your@email.com"
               tabIndex={0}
-              aria-invalid={errors.email ? "true" : "false"}
-              aria-describedby={errors.email ? "email-error" : undefined}
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
             />
             <div className="h-5 mt-1">
               {errors.email && (
@@ -241,16 +241,16 @@ export const EventsModal: React.FC<EventsModalProps> = ({
               Телефон +380XXXXXXXXX
             </label>
             <input
-              {...register("phone")}
+              {...register('phone')}
               type="tel"
               id="phone"
               className={`w-full px-4 py-3 border-2 ${
-                errors.phone ? "border-red-500" : "border-gray-200"
+                errors.phone ? 'border-red-500' : 'border-gray-200'
               } bg-muted-green rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-brown transition-colors`}
               placeholder="+380 XX XXX XX XX"
               tabIndex={0}
-              aria-invalid={errors.phone ? "true" : "false"}
-              aria-describedby={errors.phone ? "phone-error" : undefined}
+              aria-invalid={errors.phone ? 'true' : 'false'}
+              aria-describedby={errors.phone ? 'phone-error' : undefined}
             />
             <div className="h-5 mt-1">
               {errors.phone && (
@@ -269,7 +269,7 @@ export const EventsModal: React.FC<EventsModalProps> = ({
             <button
               type="button"
               onClick={handleClose}
-              onKeyDown={(e) => handleKeyDown(e, handleClose)}
+              onKeyDown={e => handleKeyDown(e, handleClose)}
               className="flex-1 px-6 py-3 border-2 border-gray-200 bg-muted-green rounded-full font-medium transition-all duration-300 hover:bg-warm-brown hover:text-cream"
               tabIndex={0}
               aria-label="Скасувати реєстрацію"
@@ -281,13 +281,13 @@ export const EventsModal: React.FC<EventsModalProps> = ({
               disabled={isSubmitting}
               className={`flex-1 px-6 py-3 border-2 border-gray-200 rounded-full font-medium transition-all duration-300 ${
                 isSubmitting
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-muted-green hover:bg-warm-brown hover:text-cream"
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-muted-green hover:bg-warm-brown hover:text-cream'
               }`}
               tabIndex={0}
               aria-label="Підтвердити реєстрацію"
             >
-              {isSubmitting ? "Реєстрація..." : "Зареєструватись"}
+              {isSubmitting ? 'Реєстрація...' : 'Зареєструватись'}
             </button>
           </div>
         </form>
