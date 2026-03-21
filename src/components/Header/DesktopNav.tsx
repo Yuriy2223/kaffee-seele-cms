@@ -1,4 +1,4 @@
-import { NavLinks } from "./NavLinks";
+import { NavLinks } from './NavLinks';
 
 type DesktopNavProps = {
   onClick: (id: string) => void;
