@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Coffee, Leaf } from "lucide-react";
+import { Coffee, Leaf } from 'lucide-react';
 
 export const LogoDecorative = () => {
   return (
