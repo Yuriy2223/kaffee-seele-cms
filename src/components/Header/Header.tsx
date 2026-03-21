@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useRef } from "react";
-import { Logo } from "../Logo/Logo";
-import { DesktopNav } from "./DesktopNav";
-import { MobileNav } from "./MobileNav";
-import { MobileMenuButton } from "./MobileMenuButton";
-import { Container } from "@/shared/Container";
-import { useActiveSection } from "@/hooks/useActiveSection";
-import { useScrollToSection } from "@/hooks/useScrollToSection";
+import { useState, useEffect, useRef } from 'react';
+import { Logo } from '../Logo/Logo';
+import { DesktopNav } from './DesktopNav';
+import { MobileNav } from './MobileNav';
+import { MobileMenuButton } from './MobileMenuButton';
+import { Container } from '@/shared/Container';
+import { useActiveSection } from '@/hooks/useActiveSection';
+import { useScrollToSection } from '@/hooks/useScrollToSection';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,19 +32,19 @@ export const Header = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMenuOpen]);
 
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isMenuOpen) {
+      if (event.key === 'Escape' && isMenuOpen) {
         closeMenu();
       }
     };
 
-    document.addEventListener("keydown", handleEscapeKey);
-    return () => document.removeEventListener("keydown", handleEscapeKey);
+    document.addEventListener('keydown', handleEscapeKey);
+    return () => document.removeEventListener('keydown', handleEscapeKey);
   }, [isMenuOpen]);
 
   useEffect(() => {
@@ -54,19 +54,19 @@ export const Header = () => {
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [isMenuOpen]);
 
@@ -91,10 +91,11 @@ export const Header = () => {
         </Container>
 
         <div
-          className={`lg:hidden absolute top-full left-0 w-full transition-all duration-500 ease-[var(--ease-spring)] ${isMenuOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-4 pointer-events-none"
-            }`}
+          className={`lg:hidden absolute top-full left-0 w-full transition-all duration-500 ease-[var(--ease-spring)] ${
+            isMenuOpen
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`}
         >
           <MobileNav
             onClick={scrollToSection}
@@ -105,8 +106,11 @@ export const Header = () => {
       </header>
 
       <div
-        className={`fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 lg:hidden transition-opacity duration-500 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        className={`fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 lg:hidden transition-opacity duration-500 ${
+          isMenuOpen
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none'
+        }`}
         onClick={closeMenu}
         aria-hidden="true"
       />
