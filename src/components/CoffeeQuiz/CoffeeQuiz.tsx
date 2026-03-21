@@ -156,7 +156,7 @@ export const CoffeeQuiz = () => {
           className="text-center mb-16"
         >
           <h3
-            className={`text-4xl md:text-5xl font-bold text-warm-brown mb-6 transition-all duration-1000 ease-[var(--ease-spring)] ${
+            className={`text-4xl md:text-5xl font-bold text-warm-brown mb-6 transition-all duration-1000 ease-spring ${
               headerInView
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-8'
@@ -165,7 +165,7 @@ export const CoffeeQuiz = () => {
             Знайдіть свою ідеальну каву
           </h3>
           <p
-            className={`text-xl text-dark-text max-w-2xl mx-auto transition-all duration-1000 ease-[var(--ease-spring)] delay-200 ${
+            className={`text-xl text-dark-text max-w-2xl mx-auto transition-all duration-1000 ease-spring delay-200 ${
               headerInView
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-8'
@@ -193,7 +193,7 @@ export const CoffeeQuiz = () => {
 
             <div className="bg-gradient-to-r from-sage-green/10 to-warm-brown/10 rounded-2xl p-6 mb-8">
               <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="relative w-32 h-32 flex-shrink-0">
+                <div className="relative w-32 h-32 shrink-0">
                   <Image
                     src={recommendation.image}
                     alt={recommendation.name}
