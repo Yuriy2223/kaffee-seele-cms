@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useRef, useEffect, useState, useCallback } from "react";
-import { useContacts } from "@/hooks/useMenu";
-import { LogoDecorative } from "../Logo/LogoDecorative";
+import { useRef, useEffect, useState, useCallback } from 'react';
+import { useContacts } from '@/hooks/useMenu';
+import { LogoDecorative } from '../Logo/LogoDecorative';
 import {
   X,
   Phone,
@@ -12,7 +12,7 @@ import {
   Instagram,
   Send,
   Facebook,
-} from "lucide-react";
+} from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -45,7 +45,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") handleClose();
+      if (e.key === 'Escape') handleClose();
     };
 
     const handleClickOutside = (e: MouseEvent) => {
@@ -56,13 +56,13 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
     if (isOpen) {
       const originalOverflow = document.body.style.overflow;
-      document.addEventListener("keydown", handleEscape);
-      document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
+      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
 
       return () => {
-        document.removeEventListener("keydown", handleEscape);
-        document.removeEventListener("mousedown", handleClickOutside);
+        document.removeEventListener('keydown', handleEscape);
+        document.removeEventListener('mousedown', handleClickOutside);
         document.body.style.overflow = originalOverflow;
       };
     }
@@ -73,7 +73,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
       {isOpen && (
         <div
           className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-warm-white/60 transition-opacity duration-300 ${
-            isVisible ? "opacity-100" : "opacity-0"
+            isVisible ? 'opacity-100' : 'opacity-0'
           }`}
           role="dialog"
           aria-modal="true"
@@ -84,8 +84,8 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             ref={modalRef}
             className={`relative bg-warm-white rounded-3xl shadow-2xl max-w-md w-full max-h-[85vh] overflow-hidden border-2 border-sage-green/30 transition-all duration-300 ${
               isVisible
-                ? "opacity-100 scale-100 translate-y-0"
-                : "opacity-0 scale-95 translate-y-8"
+                ? 'opacity-100 scale-100 translate-y-0'
+                : 'opacity-0 scale-95 translate-y-8'
             }`}
           >
             <button
@@ -111,7 +111,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             <ul className="px-8 pb-8 space-y-4 overflow-y-auto">
               <li>
                 <a
-                  href={`tel:${contacts?.phone?.replace(/[^\d+]/g, "")}`}
+                  href={`tel:${contacts?.phone?.replace(/[^\d+]/g, '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleLinkClick}
