@@ -1,18 +1,19 @@
-"use client";
+'use client';
 
-import { Container } from "@/shared/Container";
-import { useContacts } from "@/hooks/useMenu";
-import { HeaderPokicy } from "@/components/Header/HeaderPokicy";
-import { Coffee, Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Container } from '@/shared/Container';
+import { useContacts } from '@/hooks/useMenu';
+import { HeaderPokicy } from '@/components/Header/HeaderPokicy';
+import { Coffee, Shield, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   const { data: contacts, isLoading, error } = useContacts();
 
-  if (isLoading) return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="w-10 h-10 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  );
+  if (isLoading)
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-10 h-10 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
 
   if (error || !contacts) return null;
 
@@ -235,12 +236,12 @@ export default function PrivacyPolicy() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    "Отримати інформацію про обробку ваших персональних даних",
-                    "Вимагати виправлення неточних персональних даних",
-                    "Вимагати видалення ваших персональних даних",
-                    "Обмежити обробку ваших персональних даних",
-                    "Заперечити проти обробки ваших персональних даних",
-                    "Отримати ваші персональні дані у структурованому форматі",
+                    'Отримати інформацію про обробку ваших персональних даних',
+                    'Вимагати виправлення неточних персональних даних',
+                    'Вимагати видалення ваших персональних даних',
+                    'Обмежити обробку ваших персональних даних',
+                    'Заперечити проти обробки ваших персональних даних',
+                    'Отримати ваші персональні дані у структурованому форматі',
                   ].map((right, index) => (
                     <div
                       key={index}
