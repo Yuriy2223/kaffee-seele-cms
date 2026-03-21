@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Coffee, Home, ArrowLeft } from "lucide-react";
+import Link from 'next/link';
+import { Coffee, Home, ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
   const handleGoBack = () => {
-    if (typeof window !== "undefined" && window.history.length > 1) {
+    if (typeof window !== 'undefined' && window.history.length > 1) {
       window.history.back();
     } else {
-      window.location.href = "/";
+      window.location.href = '/';
     }
   };
 
