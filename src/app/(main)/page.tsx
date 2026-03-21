@@ -1,18 +1,17 @@
-import { Hero } from "@/components/Hero/Hero";
-import { Atmosphere } from "@/components/Atmosphere/Atmosphere";
-import { OurMenu } from "@/components/OurMenu/OurMenu";
-import { About } from "@/components/About/About";
-import { Gallery } from "@/components/Gallery/Gallery";
-import { Reviews } from "@/components/Reviews/Reviews";
-import { CoffeeQuiz } from "@/components/CoffeeQuiz/CoffeeQuiz";
-import { CoffeeOrigins } from "@/components/CoffeeOrigins/CoffeeOrigins";
-import { Events } from "@/components/Events/Events";
-import { ContactForm } from "@/components/ContactForm/ContactForm";
-import { ToastContainer } from "react-toastify";
+import { Hero } from '@/components/Hero/Hero';
+import { Atmosphere } from '@/components/Atmosphere/Atmosphere';
+import { OurMenu } from '@/components/OurMenu/OurMenu';
+import { About } from '@/components/About/About';
+import { Gallery } from '@/components/Gallery/Gallery';
+import { Reviews } from '@/components/Reviews/Reviews';
+import { CoffeeQuiz } from '@/components/CoffeeQuiz/CoffeeQuiz';
+import { CoffeeOrigins } from '@/components/CoffeeOrigins/CoffeeOrigins';
+import { Events } from '@/components/Events/Events';
+import { ContactForm } from '@/components/ContactForm/ContactForm';
+import { ToastContainer } from 'react-toastify';
 
 export default async function Home() {
-
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   return (
     <main>
