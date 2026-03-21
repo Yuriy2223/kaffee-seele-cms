@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Logo } from "../Logo/Logo";
-import { Container } from "@/shared/Container";
-import { ArrowLeft } from "lucide-react";
+import Link from 'next/link';
+import { Logo } from '../Logo/Logo';
+import { Container } from '@/shared/Container';
+import { ArrowLeft } from 'lucide-react';
 
 export const HeaderPokicy = () => {
   return (
