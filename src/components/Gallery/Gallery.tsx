@@ -1,46 +1,50 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { Container } from "@/shared/Container";
-import { CoffeeBackground } from "@/shared/CoffeeBackground";
-import { useInView } from "@/hooks/useInView";
-import { useGallery } from "@/hooks/useMenu";
-import { IGalleryItem } from "@/shared/types";
+import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Container } from '@/shared/Container';
+import { CoffeeBackground } from '@/shared/CoffeeBackground';
+import { useInView } from '@/hooks/useInView';
+import { useGallery } from '@/hooks/useMenu';
+import { IGalleryItem } from '@/shared/types';
 
 export const Gallery = () => {
   const { data: dynamicImages, isLoading, error } = useGallery();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
-  const { ref: headingRef, inView: headingVisible } = useInView({ threshold: 0.1 });
-  const { ref: filterRef, inView: filterVisible } = useInView({ threshold: 0.1 });
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const { ref: headingRef, inView: headingVisible } = useInView({
+    threshold: 0.1,
+  });
+  const { ref: filterRef, inView: filterVisible } = useInView({
+    threshold: 0.1,
+  });
   const { ref: gridRef, inView: gridVisible } = useInView({ threshold: 0.05 });
 
   const categories = [
-    { id: "all", name: "Все" },
-    { id: "interior", name: "Інтер'єр" },
-    { id: "process", name: "Приготування" },
-    { id: "exterior", name: "Екстер'єр" },
-    { id: "visitors", name: "Відвідувачі" },
-    { id: "events", name: "Події" },
+    { id: 'all', name: 'Все' },
+    { id: 'interior', name: "Інтер'єр" },
+    { id: 'process', name: 'Приготування' },
+    { id: 'exterior', name: "Екстер'єр" },
+    { id: 'visitors', name: 'Відвідувачі' },
+    { id: 'events', name: 'Події' },
   ];
 
   const galleryImages: IGalleryItem[] = dynamicImages || [];
 
   const filteredImages =
-    activeFilter === "all"
+    activeFilter === 'all'
       ? galleryImages
-      : galleryImages.filter((img) => img.category === activeFilter);
+      : galleryImages.filter(img => img.category === activeFilter);
 
   const openModal = (index: number) => {
     setSelectedImage(index);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = useCallback(() => {
     setSelectedImage(null);
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = 'unset';
   }, []);
 
   const nextImage = useCallback(() => {
@@ -59,34 +63,35 @@ export const Gallery = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && selectedImage !== null) {
+      if (event.key === 'Escape' && selectedImage !== null) {
         closeModal();
       }
-      if (event.key === "ArrowRight" && selectedImage !== null) {
+      if (event.key === 'ArrowRight' && selectedImage !== null) {
         nextImage();
       }
-      if (event.key === "ArrowLeft" && selectedImage !== null) {
+      if (event.key === 'ArrowLeft' && selectedImage !== null) {
         prevImage();
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedImage, filteredImages.length, closeModal, nextImage, prevImage]);
 
   useEffect(() => {
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, []);
 
-  if (isLoading) return (
-    <div className="py-20 flex justify-center items-center">
-      <div className="w-10 h-10 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  );
+  if (isLoading)
+    return (
+      <div className="py-20 flex justify-center items-center">
+        <div className="w-10 h-10 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
 
   if (error || galleryImages.length === 0) return null;
 
@@ -96,8 +101,11 @@ export const Gallery = () => {
       <Container className="px-4 py-10">
         <div
           ref={headingRef as React.RefObject<HTMLDivElement>}
-          className={`text-center mb-16 transition-all duration-1000 ease-[var(--ease-spring)] ${headingVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-90"
-            }`}
+          className={`text-center mb-16 transition-all duration-1000 ease-[var(--ease-spring)] ${
+            headingVisible
+              ? 'opacity-100 translate-y-0 scale-100'
+              : 'opacity-0 translate-y-12 scale-90'
+          }`}
         >
           <h3 className="text-4xl md:text-5xl font-bold text-warm-brown mb-6">
             Наша галерея
@@ -120,11 +128,14 @@ export const Gallery = () => {
               role="tab"
               aria-selected={activeFilter === category.id}
               aria-controls="gallery-grid"
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-500 ease-[var(--ease-spring)] ${activeFilter === category.id
-                  ? "bg-warm-brown text-warm-white shadow-lg scale-105"
-                  : "bg-white text-dark-text hover:bg-warm-brown/10 hover:scale-105"
-                } ${filterVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-              style={{ transitionDelay: filterVisible ? `${index * 100}ms` : "0ms" }}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-500 ease-[var(--ease-spring)] ${
+                activeFilter === category.id
+                  ? 'bg-warm-brown text-warm-white shadow-lg scale-105'
+                  : 'bg-white text-dark-text hover:bg-warm-brown/10 hover:scale-105'
+              } ${filterVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              style={{
+                transitionDelay: filterVisible ? `${index * 100}ms` : '0ms',
+              }}
             >
               {category.name}
             </button>
@@ -142,12 +153,17 @@ export const Gallery = () => {
             <div
               key={image.id || index}
               role="gridcell"
-              className={`relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-1000 ease-[var(--ease-spring)] backface-hidden ${gridVisible ? "opacity-100 translate-y-0 rotate-y-0" : "opacity-0 translate-y-12 rotate-y-12"
-                }`}
-              style={{ transitionDelay: gridVisible ? `${(index % 8) * 100}ms` : "0ms" }}
+              className={`relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-1000 ease-[var(--ease-spring)] backface-hidden ${
+                gridVisible
+                  ? 'opacity-100 translate-y-0 rotate-y-0'
+                  : 'opacity-0 translate-y-12 rotate-y-12'
+              }`}
+              style={{
+                transitionDelay: gridVisible ? `${(index % 8) * 100}ms` : '0ms',
+              }}
               onClick={() => openModal(index)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
                   openModal(index);
                 }
@@ -180,7 +196,7 @@ export const Gallery = () => {
             aria-modal="true"
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
-            onClick={(e) => {
+            onClick={e => {
               if (e.target === e.currentTarget) {
                 closeModal();
               }
