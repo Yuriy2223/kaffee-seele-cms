@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { connectDB } from "@/lib/mongodb";
-import Contacts from "@/models/Contacts";
+import { NextResponse } from 'next/server';
+import { connectDB } from '@/lib/mongodb';
+import Contacts from '@/models/Contacts';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
@@ -11,7 +11,7 @@ export async function GET() {
 
     if (!contacts) {
       return NextResponse.json(
-        { message: "Contacts data not found" },
+        { message: 'Contacts data not found' },
         { status: 404 }
       );
     }
@@ -19,7 +19,7 @@ export async function GET() {
     return NextResponse.json({ data: contacts });
   } catch (error: any) {
     return NextResponse.json(
-      { message: "Server error", error: error.message },
+      { message: 'Server error', error: error.message },
       { status: 500 }
     );
   }
