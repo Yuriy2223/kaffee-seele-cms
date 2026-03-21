@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Container } from "@/shared/Container";
-import { FooterBrand } from "./FooterBrand";
-import { FooterContacts } from "./FooterContacts";
-import { FooterSocial } from "./FooterSocial";
-import { FooterBottomBar } from "./FooterBottomBar";
-import { CoffeeBackground } from "@/shared/CoffeeBackground";
+import { Container } from '@/shared/Container';
+import { FooterBrand } from './FooterBrand';
+import { FooterContacts } from './FooterContacts';
+import { FooterSocial } from './FooterSocial';
+import { FooterBottomBar } from './FooterBottomBar';
+import { CoffeeBackground } from '@/shared/CoffeeBackground';
 
 export const Footer = () => {
   return (
