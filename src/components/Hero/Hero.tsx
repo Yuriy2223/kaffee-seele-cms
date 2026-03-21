@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { Container } from "@/shared/Container";
-import { useCallback, useState, useEffect } from "react";
-import { AnimatedLogo } from "../Logo/AnimatedLogo";
-import { ContactModal } from "./ContactModal";
-import { CoffeeBackground } from "@/shared/CoffeeBackground";
-import { Heart, Coffee } from "lucide-react";
-import { useScrollToSection } from "@/hooks/useScrollToSection";
-import { useHero } from "@/hooks/useMenu";
+import { Container } from '@/shared/Container';
+import { useCallback, useState, useEffect } from 'react';
+import { AnimatedLogo } from '../Logo/AnimatedLogo';
+import { ContactModal } from './ContactModal';
+import { CoffeeBackground } from '@/shared/CoffeeBackground';
+import { Heart, Coffee } from 'lucide-react';
+import { useScrollToSection } from '@/hooks/useScrollToSection';
+import { useHero } from '@/hooks/useMenu';
 
 export const Hero = () => {
   const { data: hero, isLoading, error } = useHero();
-  const [displayText1, setDisplayText1] = useState("");
-  const [displayText2, setDisplayText2] = useState("");
+  const [displayText1, setDisplayText1] = useState('');
+  const [displayText2, setDisplayText2] = useState('');
   const [currentIndex1, setCurrentIndex1] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0);
   const [showSecondLine, setShowSecondLine] = useState(false);
@@ -21,12 +21,17 @@ export const Hero = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const scrollToSection = useScrollToSection();
 
-  const { firstLine = "", secondLine = "", subtitle = "", backgroundImage: BACKGROUND_IMAGE_URL = "" } = hero || {};
+  const {
+    firstLine = '',
+    secondLine = '',
+    subtitle = '',
+    backgroundImage: BACKGROUND_IMAGE_URL = '',
+  } = hero || {};
 
   useEffect(() => {
     if (!hero) return;
-    setDisplayText1("");
-    setDisplayText2("");
+    setDisplayText1('');
+    setDisplayText2('');
     setCurrentIndex1(0);
     setCurrentIndex2(0);
     setShowSecondLine(false);
@@ -44,15 +49,19 @@ export const Hero = () => {
     }
 
     const timeout = setTimeout(() => {
-      setDisplayText1((prev) => prev + firstLine[currentIndex1]);
-      setCurrentIndex1((prev) => prev + 1);
+      setDisplayText1(prev => prev + firstLine[currentIndex1]);
+      setCurrentIndex1(prev => prev + 1);
     }, 100);
     return () => clearTimeout(timeout);
   }, [currentIndex1, firstLine, !!hero]);
 
   useEffect(() => {
     if (!showSecondLine || !hero || currentIndex2 >= secondLine.length) {
-      if (showSecondLine && currentIndex2 === secondLine.length && secondLine.length > 0) {
+      if (
+        showSecondLine &&
+        currentIndex2 === secondLine.length &&
+        secondLine.length > 0
+      ) {
         const timeout = setTimeout(() => {
           setShowElements(true);
           const heartTimeout = setTimeout(() => setShowSteamHeart(true), 500);
@@ -64,37 +73,44 @@ export const Hero = () => {
     }
 
     const timeout = setTimeout(() => {
-      setDisplayText2((prev) => prev + secondLine[currentIndex2]);
-      setCurrentIndex2((prev) => prev + 1);
+      setDisplayText2(prev => prev + secondLine[currentIndex2]);
+      setCurrentIndex2(prev => prev + 1);
     }, 100);
     return () => clearTimeout(timeout);
   }, [currentIndex2, showSecondLine, secondLine, !!hero]);
 
   const handleMenuClick = useCallback(() => {
-    scrollToSection("menu");
+    scrollToSection('menu');
   }, [scrollToSection]);
 
   const handleContactClick = useCallback(() => {
     setIsContactModalOpen(true);
   }, []);
 
-  if (error || (!isLoading && !hero)) return (
-    <div className="h-screen bg-cream/40 flex items-center justify-center">
-      <div className="text-xl text-warm-brown/70 p-8 border border-warm-brown/20 rounded-lg text-center bg-white/50 backdrop-blur-sm">
-        <p className="mb-2">☕️</p>
-        <p>Контент тимчасово недоступний.</p>
-        <p className="text-sm">Будь ласка, заповніть секцію Hero в адмін-панелі.</p>
+  if (error || (!isLoading && !hero))
+    return (
+      <div className="h-screen bg-cream/40 flex items-center justify-center">
+        <div className="text-xl text-warm-brown/70 p-8 border border-warm-brown/20 rounded-lg text-center bg-white/50 backdrop-blur-sm">
+          <p className="mb-2">☕️</p>
+          <p>Контент тимчасово недоступний.</p>
+          <p className="text-sm">
+            Будь ласка, заповніть секцію Hero в адмін-панелі.
+          </p>
+        </div>
       </div>
-    </div>
-  );
+    );
 
   return (
-    <section id="home" className="relative bg-cream/40" style={{
-      backgroundImage: `url('${BACKGROUND_IMAGE_URL}')`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}>
+    <section
+      id="home"
+      className="relative bg-cream/40"
+      style={{
+        backgroundImage: `url('${BACKGROUND_IMAGE_URL}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <CoffeeBackground />
       <Container className="flex items-center justify-center relative">
         <div
@@ -134,19 +150,21 @@ export const Hero = () => {
             </h1>
 
             <p
-              className={`text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed text-gray-100 transition-all duration-1000 delay-500 ${showElements
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-                }`}
+              className={`text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed text-gray-100 transition-all duration-1000 delay-500 ${
+                showElements
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
+              }`}
             >
               {subtitle}
             </p>
 
             <div
-              className={`flex flex-col sm:flex-row gap-4 md:gap-6 justify-center transition-all duration-1000 delay-1000 ${showElements
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-                }`}
+              className={`flex flex-col sm:flex-row gap-4 md:gap-6 justify-center transition-all duration-1000 delay-1000 ${
+                showElements
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
+              }`}
             >
               <button
                 onClick={handleMenuClick}
@@ -173,7 +191,7 @@ export const Hero = () => {
                 </div>
                 <div
                   className="absolute bottom-35 left-10 animate-float hidden md:block"
-                  style={{ animationDelay: "1s" }}
+                  style={{ animationDelay: '1s' }}
                 >
                   <Coffee
                     className="w-8 h-8 text-white/70"
