@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
-import Image from "next/image";
-import { ICoffeeQuiz } from "@/shared/types";
-import { coffeeRecommendations, quizQuestions } from "./ConstCoffeeQuiz";
-import { Container } from "@/shared/Container";
-import { CoffeeBackground } from "@/shared/CoffeeBackground";
-import { useCoffeeQuiz } from "@/hooks/useMenu";
-import { Icon } from "@/shared/Icon";
-import { useInView } from "@/hooks/useInView";
-import React from "react";
+import { useState, useMemo } from 'react';
+import Image from 'next/image';
+import { ICoffeeQuiz } from '@/shared/types';
+import { coffeeRecommendations, quizQuestions } from './ConstCoffeeQuiz';
+import { Container } from '@/shared/Container';
+import { CoffeeBackground } from '@/shared/CoffeeBackground';
+import { useCoffeeQuiz } from '@/hooks/useMenu';
+import { Icon } from '@/shared/Icon';
+import { useInView } from '@/hooks/useInView';
+import React from 'react';
 
 export type QuizQuestion = ICoffeeQuiz;
 
@@ -31,25 +31,29 @@ export const CoffeeQuiz = () => {
   const [showResult, setShowResult] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const { ref: headerRef, inView: headerInView } = useInView({ threshold: 0.1 });
+  const { ref: headerRef, inView: headerInView } = useInView({
+    threshold: 0.1,
+  });
   const { ref: quizRef, inView: quizInView } = useInView({ threshold: 0.05 });
 
-
   const questions = useMemo(() => {
-    return Array.isArray(quizData) && quizData.length > 0 ? quizData : quizQuestions;
+    return Array.isArray(quizData) && quizData.length > 0
+      ? quizData
+      : quizQuestions;
   }, [quizData]);
 
-
   const renderIcon = (icon: any, className?: string) => {
-    const defaultClassName = className || "w-6 h-6 text-sage-green group-hover:text-white";
+    const defaultClassName =
+      className || 'w-6 h-6 text-sage-green group-hover:text-white';
     if (!icon) return <Icon name="coffee" className={defaultClassName} />;
 
-
-    if (typeof icon === 'function' || (typeof icon === 'object' && icon !== null && (icon as any).$$typeof)) {
+    if (
+      typeof icon === 'function' ||
+      (typeof icon === 'object' && icon !== null && (icon as any).$$typeof)
+    ) {
       const IconComp = icon;
       return <IconComp className={defaultClassName} />;
     }
-
 
     return <Icon name={String(icon)} className={defaultClassName} />;
   };
@@ -59,7 +63,7 @@ export const CoffeeQuiz = () => {
 
     const weights: Record<string, number> = {};
 
-    questions.forEach((question) => {
+    questions.forEach(question => {
       const selectedOption = question.options.find(
         (opt: any) => opt.id === answers[question.id]
       );
@@ -73,19 +77,22 @@ export const CoffeeQuiz = () => {
     let bestMatch = coffeeRecommendations[0];
     let bestScore = -1;
 
-    coffeeRecommendations.forEach((coffee) => {
+    coffeeRecommendations.forEach(coffee => {
       let score = 0;
 
-      if (weights.light && coffee.strength === "Легка-середня") score += 3;
-      if (weights.balanced && coffee.strength === "Середня") score += 3;
-      if (weights.strong && coffee.strength === "Висока") score += 3;
-      if (weights.fruity && coffee.flavor.toLowerCase().includes("фруктов")) score += 3;
-      if (weights.nutty && coffee.flavor.toLowerCase().includes("горіхов")) score += 3;
-      if (weights.sweet && coffee.flavor.toLowerCase().includes("карамельн")) score += 2;
-      if (weights.premium && coffee.name.includes("Блю Маунтін")) score += 4;
+      if (weights.light && coffee.strength === 'Легка-середня') score += 3;
+      if (weights.balanced && coffee.strength === 'Середня') score += 3;
+      if (weights.strong && coffee.strength === 'Висока') score += 3;
+      if (weights.fruity && coffee.flavor.toLowerCase().includes('фруктов'))
+        score += 3;
+      if (weights.nutty && coffee.flavor.toLowerCase().includes('горіхов'))
+        score += 3;
+      if (weights.sweet && coffee.flavor.toLowerCase().includes('карамельн'))
+        score += 2;
+      if (weights.premium && coffee.name.includes('Блю Маунтін')) score += 4;
       if (
-        (weights.specialty && coffee.price.includes("180")) ||
-        coffee.price.includes("195")
+        (weights.specialty && coffee.price.includes('180')) ||
+        coffee.price.includes('195')
       )
         score += 2;
 
@@ -99,12 +106,12 @@ export const CoffeeQuiz = () => {
   }, [answers, showResult, questions]);
 
   const handleAnswer = (questionId: number, optionId: string) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: optionId }));
+    setAnswers(prev => ({ ...prev, [questionId]: optionId }));
 
     if (currentQuestion < questions.length - 1) {
       setIsAnimating(true);
       setTimeout(() => {
-        setCurrentQuestion((prev) => prev + 1);
+        setCurrentQuestion(prev => prev + 1);
         setIsAnimating(false);
       }, 300);
     } else {
@@ -121,7 +128,10 @@ export const CoffeeQuiz = () => {
 
   if (isQuizLoading) {
     return (
-      <section id="coffee-quiz" className="relative bg-cream/20 py-20 text-center font-sans">
+      <section
+        id="coffee-quiz"
+        className="relative bg-cream/20 py-20 text-center font-sans"
+      >
         <Container>
           <div className="flex flex-col items-center gap-4">
             <div className="w-12 h-12 border-4 border-sage-green border-t-transparent rounded-full animate-spin"></div>
@@ -145,12 +155,22 @@ export const CoffeeQuiz = () => {
           ref={headerRef as React.RefObject<HTMLDivElement>}
           className="text-center mb-16"
         >
-          <h3 className={`text-4xl md:text-5xl font-bold text-warm-brown mb-6 transition-all duration-1000 ease-[var(--ease-spring)] ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}>
+          <h3
+            className={`text-4xl md:text-5xl font-bold text-warm-brown mb-6 transition-all duration-1000 ease-[var(--ease-spring)] ${
+              headerInView
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             Знайдіть свою ідеальну каву
           </h3>
-          <p className={`text-xl text-dark-text max-w-2xl mx-auto transition-all duration-1000 ease-[var(--ease-spring)] delay-200 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}>
+          <p
+            className={`text-xl text-dark-text max-w-2xl mx-auto transition-all duration-1000 ease-[var(--ease-spring)] delay-200 ${
+              headerInView
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             Пройдіть наш персональний тест і отримайте рекомендацію кави, яка
             ідеально підходить саме вам
           </p>
@@ -195,7 +215,9 @@ export const CoffeeQuiz = () => {
                       <span className="font-bold text-sage-green block mb-1">
                         Смак:
                       </span>
-                      <p className="text-dark-text font-medium">{recommendation.flavor}</p>
+                      <p className="text-dark-text font-medium">
+                        {recommendation.flavor}
+                      </p>
                     </div>
                     <div>
                       <span className="font-bold text-sage-green block mb-1">
@@ -215,14 +237,16 @@ export const CoffeeQuiz = () => {
                 Характеристики:
               </h5>
               <div className="flex flex-wrap gap-2 mb-6">
-                {recommendation.characteristics.map((char: string, index: number) => (
-                  <span
-                    key={index}
-                    className="bg-cream/50 text-dark-text px-4 py-1.5 rounded-full text-sm font-medium border border-cream"
-                  >
-                    {char}
-                  </span>
-                ))}
+                {recommendation.characteristics.map(
+                  (char: string, index: number) => (
+                    <span
+                      key={index}
+                      className="bg-cream/50 text-dark-text px-4 py-1.5 rounded-full text-sm font-medium border border-cream"
+                    >
+                      {char}
+                    </span>
+                  )
+                )}
               </div>
 
               <h5 className="font-bold text-lg text-sage-green mb-4">
@@ -252,16 +276,17 @@ export const CoffeeQuiz = () => {
             </div>
           </div>
         ) : (
-          <div ref={quizRef as React.RefObject<HTMLDivElement>} className="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden">
+          <div
+            ref={quizRef as React.RefObject<HTMLDivElement>}
+            className="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden"
+          >
             <div className="mb-8 relative z-10">
               <div className="flex justify-between items-center mb-4">
                 <span className="text-sm font-bold text-warm-brown/70 tracking-wider">
                   Питання {currentQuestion + 1} з {questions.length}
                 </span>
                 <span className="text-sm text-sage-green font-black">
-                  {Math.round(
-                    ((currentQuestion + 1) / questions.length) * 100
-                  )}
+                  {Math.round(((currentQuestion + 1) / questions.length) * 100)}
                   %
                 </span>
               </div>
@@ -276,12 +301,15 @@ export const CoffeeQuiz = () => {
             </div>
 
             <div
-              className={`transition-all duration-700 ease-[var(--ease-spring)] relative z-10 ${isAnimating
-                ? "opacity-0 transform translate-x-12"
-                : "opacity-100 transform translate-x-0"
-                }`}
+              className={`transition-all duration-700 ease-[var(--ease-spring)] relative z-10 ${
+                isAnimating
+                  ? 'opacity-0 transform translate-x-12'
+                  : 'opacity-100 transform translate-x-0'
+              }`}
             >
-              <div className={`text-center mb-10 transition-all duration-1000 ${quizInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+              <div
+                className={`text-center mb-10 transition-all duration-1000 ${quizInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              >
                 <div className="w-20 h-20 bg-warm-brown/5 rounded-2xl flex items-center justify-center mx-auto mb-6 transform rotate-3">
                   <Icon name="coffee" className="w-10 h-10 text-warm-brown" />
                 </div>
@@ -295,8 +323,12 @@ export const CoffeeQuiz = () => {
                   <button
                     key={option.id}
                     onClick={() => handleAnswer(currentQ.id, option.id)}
-                    className={`w-full p-5 bg-warm-white border-2 border-transparent hover:border-sage-green/30 rounded-2xl transition-all duration-700 hover:shadow-xl hover:scale-[1.02] group text-left relative overflow-hidden ${quizInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                    style={{ transitionDelay: quizInView ? `${index * 100 + 300}ms` : "0ms" }}
+                    className={`w-full p-5 bg-warm-white border-2 border-transparent hover:border-sage-green/30 rounded-2xl transition-all duration-700 hover:shadow-xl hover:scale-[1.02] group text-left relative overflow-hidden ${quizInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    style={{
+                      transitionDelay: quizInView
+                        ? `${index * 100 + 300}ms`
+                        : '0ms',
+                    }}
                     aria-label={`Вибрати відповідь: ${option.text}`}
                   >
                     <div className="flex items-center space-x-5 relative z-10">
@@ -308,7 +340,10 @@ export const CoffeeQuiz = () => {
                           {option.text}
                         </p>
                       </div>
-                      <Icon name="arrow-right" className="w-6 h-6 text-sage-green opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" />
+                      <Icon
+                        name="arrow-right"
+                        className="w-6 h-6 text-sage-green opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300"
+                      />
                     </div>
                   </button>
                 ))}
