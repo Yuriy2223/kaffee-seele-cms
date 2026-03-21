@@ -1,5 +1,5 @@
-import { Coffee, Leaf, Star } from "lucide-react";
-import { useReviewStats } from "@/hooks/useReviewStats";
+import { Coffee, Leaf, Star } from 'lucide-react';
+import { useReviewStats } from '@/hooks/useReviewStats';
 
 export const FooterBrand = () => {
   const { averageRating, totalReviews } = useReviewStats();
@@ -27,11 +27,13 @@ export const FooterBrand = () => {
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              className={`w-4 h-4 ${i < filledStars ? "fill-amber-400 text-amber-400" : "text-warm-white/30"}`}
+              className={`w-4 h-4 ${i < filledStars ? 'fill-amber-400 text-amber-400' : 'text-warm-white/30'}`}
             />
           ))}
         </div>
-        <span className="text-sm font-medium text-warm-white">{averageRating} / {totalReviews}</span>
+        <span className="text-sm font-medium text-warm-white">
+          {averageRating} / {totalReviews}
+        </span>
         <span className="text-xs text-warm-white/60 hidden sm:inline">
           від наших гостей
         </span>
@@ -39,4 +41,3 @@ export const FooterBrand = () => {
     </div>
   );
 };
-
