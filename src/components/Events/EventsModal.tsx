@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { X, User, Mail, Phone } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { Event } from './Events';
+import { eventSchema } from '@/lib/schemas';
 
 interface EventsModalProps {
   isOpen: boolean;
@@ -17,29 +18,6 @@ interface FormData {
   email: string;
   phone: string;
 }
-
-const validationSchema = yup.object().shape({
-  name: yup
-    .string()
-    .required("Ім'я та прізвище обов'язкові")
-    .min(2, "Ім'я повинно містити мінімум 2 символи")
-    .max(50, "Ім'я не повинно перевищувати 50 символів")
-    .matches(
-      /^[а-яА-ЯіІїЇєЄґҐa-zA-Z\s']+$/,
-      "Ім'я може містити тільки літери, пробіли, апострофи"
-    ),
-
-  email: yup
-    .string()
-    .required("Email обов'язковий")
-    .email('Введіть коректний email')
-    .max(100, 'Email не повинен перевищувати 100 символів'),
-
-  phone: yup
-    .string()
-    .required("Номер телефону обов'язковий")
-    .matches(/^(\+38)?[0-9]{10}$/, 'Введіть коректний номер телефону'),
-});
 
 export const EventsModal: React.FC<EventsModalProps> = ({
   isOpen,
@@ -56,7 +34,7 @@ export const EventsModal: React.FC<EventsModalProps> = ({
     setFocus,
     clearErrors,
   } = useForm<FormData>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(eventSchema),
     mode: 'onChange',
     defaultValues: {
       name: '',

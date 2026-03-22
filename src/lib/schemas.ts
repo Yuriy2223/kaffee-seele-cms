@@ -11,46 +11,12 @@ export const contactRequestSchema = yup.object({
   status: yup.string().oneOf(['new', 'read', 'replied']).default('new'),
 });
 
-export const productSchema = yup.object({
-  name: yup.string().required("Назва обов'язкова"),
-  description: yup.string().required("Опис обов'язковий"),
-  price: yup
-    .number()
-    .positive('Ціна повинна бути додатною')
-    .required("Ціна обов'язкова"),
-  image: yup.string().url('Невірний формат URL зображення'),
-  category: yup.string().required("Категорія обов'язкова"),
-  isAvailable: yup.boolean().default(true),
-});
-
 export const reviewSchema = yup.object({
   name: yup.string().required("Ім'я обов'язкове"),
   rating: yup.number().min(1).max(5).required("Рейтинг обов'язковий"),
   text: yup.string().required("Відгук обов'язковий"),
   avatar: yup.string().url('Невірний формат URL аватара'),
   date: yup.date().default(() => new Date()),
-});
-
-export const categorySchema = yup.object({
-  name: yup.string().required("Назва обов'язкова"),
-  slug: yup.string().required("Slug обов'язковий"),
-});
-
-export const coffeeMenuSchema = yup.object({
-  id: yup.string().required(),
-  name: yup.string().required(),
-  description: yup.string().required(),
-  price: yup.number().positive().required(),
-  image: yup.string().required(),
-  icon: yup.string().required(),
-});
-
-export const dessertMenuSchema = yup.object({
-  id: yup.string().required(),
-  name: yup.string().required(),
-  description: yup.string().required(),
-  price: yup.number().positive().required(),
-  image: yup.string().required(),
 });
 
 export const schemaReviewForm: yup.ObjectSchema<ReviewFormData> = yup.object({
@@ -80,3 +46,26 @@ export const contactSchema = yup
     message: yup.string().required("Повідомлення обов'язкове"),
   })
   .required();
+
+export const eventSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required("Ім'я та прізвище обов'язкові")
+    .min(2, "Ім'я повинно містити мінімум 2 символи")
+    .max(50, "Ім'я не повинно перевищувати 50 символів")
+    .matches(
+      /^[а-яА-ЯіІїЇєЄґҐa-zA-Z\s']+$/,
+      "Ім'я може містити тільки літери, пробіли, апострофи"
+    ),
+
+  email: yup
+    .string()
+    .required("Email обов'язковий")
+    .email('Введіть коректний email')
+    .max(100, 'Email не повинен перевищувати 100 символів'),
+
+  phone: yup
+    .string()
+    .required("Номер телефону обов'язковий")
+    .matches(/^(\+38)?[0-9]{10}$/, 'Введіть коректний номер телефону'),
+});
