@@ -142,7 +142,7 @@ export const About = () => {
                 return (
                   <div
                     key={card.title}
-                    className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all duration-1000 ease-[var(--ease-spring)] backface-hidden ${
+                    className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all duration-1000 ease-spring backface-hidden ${
                       cardsVisible
                         ? 'opacity-100 translate-x-0 rotate-y-0'
                         : `opacity-0 ${fromLeft ? '-translate-x-12 -rotate-y-12' : 'translate-x-12 rotate-y-12'}`

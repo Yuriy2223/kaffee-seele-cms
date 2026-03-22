@@ -99,7 +99,7 @@ export const TeamCarousel = () => {
             const isFlipped = flippedCards.has(memberId);
 
             return (
-              <SwiperSlide key={memberId} className="!w-80 !h-96 max-sm:!w-70">
+              <SwiperSlide key={memberId} className="w-80! h-96! max-sm:w-70!">
                 <div
                   className="relative w-full h-full cursor-pointer"
                   onClick={() => handleCardFlip(memberId)}
@@ -122,6 +122,7 @@ export const TeamCarousel = () => {
                           width={320}
                           height={240}
                           className="w-full h-60 object-cover"
+                          style={{ width: 'auto', height: 'auto' }}
                         />
 
                         <div className="absolute -top-2 left-4 w-16 h-4 bg-yellow-100/80 rotate-12 shadow-sm rounded-sm"></div>
@@ -151,7 +152,7 @@ export const TeamCarousel = () => {
                     </div>
 
                     <div
-                      className="absolute inset-0 bg-gradient-to-br from-sage-green/10 to-warm-brown/10 rounded-2xl shadow-xl overflow-hidden"
+                      className="absolute inset-0 bg-linear-to-br from-sage-green/10 to-warm-brown/10 rounded-2xl shadow-xl overflow-hidden"
                       style={{
                         backfaceVisibility: 'hidden',
                         transform: 'rotateY(180deg)',
@@ -207,7 +208,7 @@ export const TeamCarousel = () => {
                                       key={idx}
                                       className="flex items-start text-xs"
                                     >
-                                      <Star className="w-3 h-3 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                                      <Star className="w-3 h-3 text-yellow-500 mr-2 mt-0.5 shrink-0" />
                                       <span className="text-gray-600 leading-tight">
                                         {achievement}
                                       </span>
