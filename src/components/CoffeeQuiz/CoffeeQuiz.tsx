@@ -147,7 +147,7 @@ export const CoffeeQuiz = () => {
   return (
     <section
       id="coffee-quiz"
-      className="relative bg-gradient-to-r from-sage-green/10 to-warm-brown/10 font-sans"
+      className="relative bg-linear-to-r from-sage-green/10 to-warm-brown/10 font-sans"
     >
       <CoffeeBackground />
       <Container className="px-4 py-10">
@@ -179,7 +179,7 @@ export const CoffeeQuiz = () => {
         {showResult && recommendation ? (
           <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl p-8 animate-slideUp">
             <div className="text-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-br from-sage-green to-warm-brown rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-linear-to-br from-sage-green to-warm-brown rounded-full flex items-center justify-center mx-auto mb-6">
                 <Icon name="coffee" className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-3xl font-bold text-warm-brown mb-4">
@@ -191,7 +191,7 @@ export const CoffeeQuiz = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-sage-green/10 to-warm-brown/10 rounded-2xl p-6 mb-8">
+            <div className="bg-linear-to-r from-sage-green/10 to-warm-brown/10 rounded-2xl p-6 mb-8">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="relative w-32 h-32 shrink-0">
                   <Image
@@ -292,7 +292,7 @@ export const CoffeeQuiz = () => {
               </div>
               <div className="w-full bg-cream/30 rounded-full h-3 overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-sage-green to-warm-brown h-full rounded-full transition-all duration-700 ease-out"
+                  className="bg-linear-to-r from-sage-green to-warm-brown h-full rounded-full transition-all duration-700 ease-out"
                   style={{
                     width: `${((currentQuestion + 1) / questions.length) * 100}%`,
                   }}
@@ -301,7 +301,7 @@ export const CoffeeQuiz = () => {
             </div>
 
             <div
-              className={`transition-all duration-700 ease-[var(--ease-spring)] relative z-10 ${
+              className={`transition-all duration-700 ease-spring relative z-10 ${
                 isAnimating
                   ? 'opacity-0 transform translate-x-12'
                   : 'opacity-100 transform translate-x-0'
