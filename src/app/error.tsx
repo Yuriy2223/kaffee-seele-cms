@@ -39,7 +39,7 @@ export default function Error({
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={reset}
-                className="flex items-center space-x-2 px-6 py-3 bg-cream hover:bg-warm-brown text-warm-brown hover:text-warm-white rounded-lg transition-all duration-300 min-w-[160px] justify-center"
+                className="flex items-center space-x-2 px-6 py-3 bg-cream hover:bg-warm-brown text-warm-brown hover:text-warm-white rounded-lg transition-all duration-300 min-w-40 justify-center"
               >
                 <RefreshCw className="h-5 w-5" />
                 <span>Спробувати знову</span>
@@ -47,7 +47,7 @@ export default function Error({
 
               <Link
                 href="/"
-                className="flex items-center space-x-2 px-6 py-3 bg-warm-brown/70 hover:bg-warm-brown text-warm-white rounded-lg transition-all duration-300 min-w-[160px] justify-center"
+                className="flex items-center space-x-2 px-6 py-3 bg-warm-brown/70 hover:bg-warm-brown text-warm-white rounded-lg transition-all duration-300 min-w-40 justify-center"
               >
                 <Home className="h-5 w-5" />
                 <span>На головну</span>
