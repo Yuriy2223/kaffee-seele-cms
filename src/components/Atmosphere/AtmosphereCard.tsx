@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart } from 'lucide-react';
 
 interface AtmosphereCardProps {
   className?: string;
@@ -10,7 +10,7 @@ export const AtmosphereCard = ({ className }: AtmosphereCardProps) => {
       className={`group bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-cream/50 transform transition-all duration-500 hover:shadow-xl hover:scale-[1.03] ${className}`}
     >
       <div className="flex items-center justify-center mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-sage-green to-warm-brown rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+        <div className="w-16 h-16 bg-linear-to-br from-sage-green to-warm-brown rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
           <Heart className="w-8 h-8 text-white" aria-hidden="true" />
         </div>
       </div>
@@ -39,12 +39,12 @@ export const AtmosphereCard = ({ className }: AtmosphereCardProps) => {
         ></div>
         <div
           className="w-2 h-2 bg-warm-brown rounded-full animate-pulse"
-          style={{ animationDelay: "0.5s" }}
+          style={{ animationDelay: '0.5s' }}
           aria-hidden="true"
         ></div>
         <div
           className="w-2 h-2 bg-sage-green rounded-full animate-pulse"
-          style={{ animationDelay: "1s" }}
+          style={{ animationDelay: '1s' }}
           aria-hidden="true"
         ></div>
       </div>
