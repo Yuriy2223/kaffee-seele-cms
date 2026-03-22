@@ -11,8 +11,6 @@ import { ContactForm } from '@/components/ContactForm/ContactForm';
 import { ToastContainer } from 'react-toastify';
 
 export default async function Home() {
-  await new Promise(resolve => setTimeout(resolve, 10000));
-
   return (
     <main>
       <Hero />
