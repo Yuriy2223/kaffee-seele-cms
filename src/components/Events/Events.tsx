@@ -104,7 +104,7 @@ export const Events = () => {
                 return (
                   <div
                     key={event.id}
-                    className={`group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.03] hover:animate-glow transition-all duration-1000 ease-[var(--ease-spring)] backface-hidden ${
+                    className={`group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.03] hover:animate-glow transition-all duration-1000 ease-spring backface-hidden ${
                       cardsVisible
                         ? 'opacity-100 translate-y-0 rotate-x-0'
                         : 'opacity-0 translate-y-12 -rotate-x-90'
@@ -117,7 +117,7 @@ export const Events = () => {
                   >
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center">
-                        <div className="w-12 h-12 bg-warm-brown/10 rounded-full flex items-center justify-center mr-4 transition-all duration-500 group-hover:rotate-[360deg] group-hover:bg-sage-green/20">
+                        <div className="w-12 h-12 bg-warm-brown/10 rounded-full flex items-center justify-center mr-4 transition-all duration-500 group-hover:rotate-360 group-hover:bg-sage-green/20">
                           <IconComponent className="w-6 h-6 text-warm-brown transition-colors duration-500 group-hover:text-sage-green" />
                         </div>
                         <div>
