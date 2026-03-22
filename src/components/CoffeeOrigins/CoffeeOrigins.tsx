@@ -106,7 +106,7 @@ export const CoffeeOrigins = () => {
             ref={mapRef as React.RefObject<HTMLDivElement>}
           >
             <div
-              className={`bg-gradient-to-b from-sage-green/10 to-warm-brown/10 rounded-2xl p-4 sm:p-8 shadow-xl transition-all duration-1000 ${
+              className={`bg-linear-to-b from-sage-green/10 to-warm-brown/10 rounded-2xl p-4 sm:p-8 shadow-xl transition-all duration-1000 ${
                 mapVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             >
@@ -176,7 +176,7 @@ export const CoffeeOrigins = () => {
                       tabIndex={0}
                     >
                       <div
-                        className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-500 ${isHovered || isSelected ? 'rotate-[360deg] scale-110' : ''}`}
+                        className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-500 ${isHovered || isSelected ? 'rotate-360 scale-110' : ''}`}
                       >
                         {renderIcon(origin.icon, 'w-full h-full')}
                       </div>
@@ -194,7 +194,7 @@ export const CoffeeOrigins = () => {
 
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 transform-style-3d">
             <div
-              className={`lg:col-span-1 transition-all duration-1000 ease-[var(--ease-spring)] ${mapVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
+              className={`lg:col-span-1 transition-all duration-1000 ease-spring ${mapVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
             >
               <h4 className="text-xl sm:text-2xl font-semibold text-sage-green mb-4 sm:mb-6">
                 Наші постачальники
@@ -203,7 +203,7 @@ export const CoffeeOrigins = () => {
                 {origins.map((origin: ICoffeeOrigin, index: number) => (
                   <button
                     key={origin.id}
-                    className={`w-full text-left p-3 sm:p-4 rounded-xl transition-all duration-500 ease-[var(--ease-spring)] focus:outline-none focus:ring-2 focus:ring-warm-brown focus:ring-offset-2 ${
+                    className={`w-full text-left p-3 sm:p-4 rounded-xl transition-all duration-500 ease-spring focus:outline-none focus:ring-2 focus:ring-warm-brown focus:ring-offset-2 ${
                       selectedOrigin === origin.id
                         ? 'bg-warm-brown text-warm-white shadow-lg scale-105'
                         : 'bg-warm-white hover:bg-cream/50 translate-x-0'
@@ -218,7 +218,7 @@ export const CoffeeOrigins = () => {
                   >
                     <div className="flex items-center mb-2">
                       <div
-                        className={`w-4 h-4 sm:w-5 sm:h-5 mr-3 transition-transform duration-500 ${selectedOrigin === origin.id ? 'rotate-[360deg]' : ''}`}
+                        className={`w-4 h-4 sm:w-5 sm:h-5 mr-3 transition-transform duration-500 ${selectedOrigin === origin.id ? 'rotate-360' : ''}`}
                       >
                         {renderIcon(origin.icon, 'w-full h-full')}
                       </div>
@@ -238,7 +238,7 @@ export const CoffeeOrigins = () => {
               {selectedOrigin ? (
                 <div
                   key={selectedOrigin}
-                  className="bg-warm-white rounded-2xl p-6 sm:p-8 shadow-xl animate-in slide-in-from-right-12 fade-in duration-700 ease-[var(--ease-spring)] transform-style-3d"
+                  className="bg-warm-white rounded-2xl p-6 sm:p-8 shadow-xl animate-in slide-in-from-right-12 fade-in duration-700 ease-spring transform-style-3d"
                 >
                   {selectedOriginData && (
                     <>
@@ -277,7 +277,7 @@ export const CoffeeOrigins = () => {
                                   key={index}
                                   className="flex items-center text-dark-text text-sm sm:text-base"
                                 >
-                                  <div className="w-2 h-2 bg-sage-green rounded-full mr-3 flex-shrink-0"></div>
+                                  <div className="w-2 h-2 bg-sage-green rounded-full mr-3 shrink-0"></div>
                                   {char}
                                 </li>
                               )
