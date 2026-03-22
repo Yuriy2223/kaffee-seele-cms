@@ -53,7 +53,7 @@ export const ContactForm = () => {
       <Container>
         <div
           ref={formRef as React.RefObject<HTMLDivElement>}
-          className={`max-w-3xl mx-auto bg-muted-green p-8 md:p-12 rounded-3xl shadow-xl border-2 border-sage-green/20 transition-all duration-1000 ease-[var(--ease-spring)] ${
+          className={`max-w-3xl mx-auto bg-muted-green p-8 md:p-12 rounded-3xl shadow-xl border-2 border-sage-green/20 transition-all duration-1000 ease-spring ${
             formInView
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-12'
