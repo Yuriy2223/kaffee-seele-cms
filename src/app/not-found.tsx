@@ -40,7 +40,7 @@ export default function NotFound() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Link
                 href="/"
-                className="flex items-center space-x-2 px-6 py-3 bg-warm-brown/70 hover:bg-warm-brown text-warm-white rounded-lg transition-all duration-300 min-w-[160px] justify-center"
+                className="flex items-center space-x-2 px-6 py-3 bg-warm-brown/70 hover:bg-warm-brown text-warm-white rounded-lg transition-all duration-300 min-w-40 justify-center"
               >
                 <Home className="h-5 w-5" />
                 <span>На головну</span>
@@ -48,7 +48,7 @@ export default function NotFound() {
 
               <button
                 onClick={handleGoBack}
-                className="flex items-center space-x-2 px-6 py-3 bg-cream hover:bg-warm-brown text-warm-brown hover:text-warm-white rounded-lg transition-colors duration-300 min-w-[160px] justify-center"
+                className="flex items-center space-x-2 px-6 py-3 bg-cream hover:bg-warm-brown text-warm-brown hover:text-warm-white rounded-lg transition-colors duration-300 min-w-40 justify-center"
               >
                 <ArrowLeft className="h-5 w-5" />
                 <span>Назад</span>
