@@ -10,7 +10,7 @@ import { useScrollToSection } from '@/hooks/useScrollToSection';
 import { useHero } from '@/hooks/useMenu';
 
 export const Hero = () => {
-  const { data: hero, isLoading, error } = useHero();
+  const { data: hero } = useHero();
   const [displayText1, setDisplayText1] = useState('');
   const [displayText2, setDisplayText2] = useState('');
   const [currentIndex1, setCurrentIndex1] = useState(0);
@@ -25,7 +25,8 @@ export const Hero = () => {
     firstLine = '',
     secondLine = '',
     subtitle = '',
-    backgroundImage: BACKGROUND_IMAGE_URL = '',
+    backgroundImage:
+      BACKGROUND_IMAGE_URL = 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&h=630',
   } = hero || {};
 
   useEffect(() => {
@@ -86,19 +87,6 @@ export const Hero = () => {
   const handleContactClick = useCallback(() => {
     setIsContactModalOpen(true);
   }, []);
-
-  if (error || (!isLoading && !hero))
-    return (
-      <div className="h-screen bg-cream/40 flex items-center justify-center">
-        <div className="text-xl text-warm-brown/70 p-8 border border-warm-brown/20 rounded-lg text-center bg-white/50 backdrop-blur-sm">
-          <p className="mb-2">☕️</p>
-          <p>Контент тимчасово недоступний.</p>
-          <p className="text-sm">
-            Будь ласка, заповніть секцію Hero в адмін-панелі.
-          </p>
-        </div>
-      </div>
-    );
 
   return (
     <section
