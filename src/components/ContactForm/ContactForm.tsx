@@ -9,19 +9,9 @@ import { Send } from 'lucide-react';
 import { useContactMutation } from '@/hooks/useContact';
 import { useInView } from '@/hooks/useInView';
 import React from 'react';
+import { contactSchema } from '@/lib/schemas';
 
-const schema = yup
-  .object({
-    name: yup.string().required("Будь ласка, введіть ваше ім'я"),
-    email: yup
-      .string()
-      .email('Некоректний емейл')
-      .required('Будь ласка, введіть ваш емейл'),
-    message: yup.string().required('Будь ласка, введіть повідомлення'),
-  })
-  .required();
-
-type FormData = yup.InferType<typeof schema>;
+type FormData = yup.InferType<typeof contactSchema>;
 
 export const ContactForm = () => {
   const { mutateAsync } = useContactMutation();
@@ -31,7 +21,7 @@ export const ContactForm = () => {
     reset,
     formState: { errors, isSubmitting: isFormSubmitting },
   } = useForm<FormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(contactSchema),
   });
 
   const onSubmit = async (data: FormData) => {

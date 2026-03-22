@@ -69,3 +69,14 @@ export const schemaReviewForm: yup.ObjectSchema<ReviewFormData> = yup.object({
     .min(10, 'Відгук має містити мінімум 10 символів'),
   photo: yup.string().optional(),
 });
+
+export const contactSchema = yup
+  .object({
+    name: yup.string().required("Ім'я обов'язкове"),
+    email: yup
+      .string()
+      .email('Невірний формат email')
+      .required("Email обов'язковий"),
+    message: yup.string().required("Повідомлення обов'язкове"),
+  })
+  .required();
