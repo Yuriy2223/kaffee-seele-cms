@@ -33,17 +33,17 @@ export const FooterContacts = () => {
       className="md:col-span-1 space-y-6"
     >
       <h4
-        className={`text-lg sm:text-xl font-semibold text-warm-white border-b border-warm-white/30 pb-2 text-center transition-all duration-1000 ease-[var(--ease-spring)] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        className={`text-lg sm:text-xl font-semibold text-warm-white border-b border-warm-white/30 pb-2 text-center transition-all duration-1000 ease-spring ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
       >
         Контакти
       </h4>
 
       <div className="space-y-3">
         <div
-          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 transition-all duration-1000 ease-[var(--ease-spring)] delay-100 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 transition-all duration-1000 ease-spring delay-100 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
         >
           <div className="flex items-start space-x-3 mb-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-sage-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-sage-green/20 rounded-lg flex items-center justify-center shrink-0">
               <MapPin className="text-warm-white w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0 flex-1">
@@ -70,10 +70,10 @@ export const FooterContacts = () => {
         </div>
 
         <div
-          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 hover:bg-warm-white/12 transition-colors duration-200 transition-all duration-1000 ease-[var(--ease-spring)] delay-200 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 hover:bg-warm-white/12 transition-all duration-1000 ease-spring delay-200 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
         >
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-warm-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-warm-white/15 rounded-lg flex items-center justify-center shrink-0">
               <Phone className="text-warm-white w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
@@ -93,10 +93,10 @@ export const FooterContacts = () => {
         </div>
 
         <div
-          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 hover:bg-warm-white/12 transition-colors duration-200 transition-all duration-1000 ease-[var(--ease-spring)] delay-300 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 hover:bg-warm-white/12 transition-all duration-1000 ease-spring delay-300 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
         >
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-warm-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-warm-white/15 rounded-lg flex items-center justify-center shrink-0">
               <Mail className="text-warm-white w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
@@ -113,10 +113,10 @@ export const FooterContacts = () => {
         </div>
 
         <div
-          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 hover:bg-warm-white/12 transition-colors duration-200 transition-all duration-1000 ease-[var(--ease-spring)] delay-400 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          className={`bg-warm-white/8 rounded-lg p-3 sm:p-4 border border-warm-white/10 hover:bg-warm-white/12 transition-all duration-1000 ease-spring delay-400 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
         >
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-warm-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-warm-white/15 rounded-lg flex items-center justify-center shrink-0">
               <Clock className="text-warm-white w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
