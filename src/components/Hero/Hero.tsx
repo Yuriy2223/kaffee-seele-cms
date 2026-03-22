@@ -114,7 +114,7 @@ export const Hero = () => {
       <CoffeeBackground />
       <Container className="flex items-center justify-center relative">
         <div
-          className="h-[500px] md:h-[600px] lg:h-[800px] w-full flex flex-col items-center justify-center relative"
+          className="h-125 md:h-150 lg:h-200 w-full flex flex-col items-center justify-center relative"
           role="banner"
           aria-label="Головна секція сайту кав'ярні"
         >
@@ -171,7 +171,7 @@ export const Hero = () => {
                 className="relative bg-warm-brown/50 backdrop-blur-sm text-warm-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium text-base md:text-lg transition-all duration-800 shadow-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-sage-green/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden group"
                 aria-label="Переглянути меню кав'ярні"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-sage-green to-warm-brown opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-full" />
+                <div className="absolute inset-0 bg-linear-to-r from-sage-green to-warm-brown opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-full" />
                 <span className="relative z-10">Переглянути меню</span>
               </button>
               <button
@@ -179,7 +179,7 @@ export const Hero = () => {
                 className="relative bg-sage-green/50 backdrop-blur-sm text-warm-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium text-base md:text-lg transition-all duration-800 shadow-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-warm-brown/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden group"
                 aria-label="Перейти до контактної інформації"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-warm-brown to-sage-green opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-full" />
+                <div className="absolute inset-0 bg-linear-to-r from-warm-brown to-sage-green opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-full" />
                 <span className="relative z-10">Зв&apos;язатися з нами</span>
               </button>
             </div>
