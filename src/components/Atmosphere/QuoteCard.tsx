@@ -1,40 +1,40 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { Coffee } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { Coffee } from 'lucide-react';
 
 const quotes = [
   {
-    text: "Кава - це мова сама по собі",
-    author: "Жак Керуак",
+    text: 'Кава - це мова сама по собі',
+    author: 'Жак Керуак',
   },
   {
-    text: "Життя занадто коротке для поганої кави",
-    author: "Народна мудрість",
+    text: 'Життя занадто коротке для поганої кави',
+    author: 'Народна мудрість',
   },
   {
-    text: "Кава робить нас суворими, серйозними та філософськими",
-    author: "Джонатан Свіфт",
+    text: 'Кава робить нас суворими, серйозними та філософськими',
+    author: 'Джонатан Свіфт',
   },
   {
-    text: "Без моєї ранкової кави я схожий на висохлу козу",
-    author: "Йоганн Себастьян Бах",
+    text: 'Без моєї ранкової кави я схожий на висохлу козу',
+    author: 'Йоганн Себастьян Бах',
   },
   {
-    text: "Кава - це спільна мова для всього світу",
-    author: "Джон Стюарт",
+    text: 'Кава - це спільна мова для всього світу',
+    author: 'Джон Стюарт',
   },
   {
-    text: "Спершу кава, потім світ",
-    author: "Девід Лінч",
+    text: 'Спершу кава, потім світ',
+    author: 'Девід Лінч',
   },
   {
-    text: "Кава пробуджує душу і відкриває розум",
+    text: 'Кава пробуджує душу і відкриває розум',
     author: "Арабське прислів'я",
   },
   {
-    text: "Добра кава - це задоволення, погана кава - краща за відсутність кави",
-    author: "Енцо Феррарі",
+    text: 'Добра кава - це задоволення, погана кава - краща за відсутність кави',
+    author: 'Енцо Феррарі',
   },
 ];
 
@@ -49,7 +49,7 @@ export const QuoteCard = () => {
   return (
     <div className="group bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-cream/50 transform transition-all duration-500 hover:shadow-xl hover:scale-[1.03]">
       <div className="flex items-center justify-center mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-sage-green to-warm-brown rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+        <div className="w-16 h-16 bg-linear-to-br from-sage-green to-warm-brown rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
           <Coffee className="w-8 h-8 text-white" aria-hidden="true" />
         </div>
       </div>
@@ -75,12 +75,12 @@ export const QuoteCard = () => {
         ></div>
         <div
           className="w-2 h-2 bg-warm-brown rounded-full animate-pulse"
-          style={{ animationDelay: "0.5s" }}
+          style={{ animationDelay: '0.5s' }}
           aria-hidden="true"
         ></div>
         <div
           className="w-2 h-2 bg-sage-green rounded-full animate-pulse"
-          style={{ animationDelay: "1s" }}
+          style={{ animationDelay: '1s' }}
           aria-hidden="true"
         ></div>
       </div>
