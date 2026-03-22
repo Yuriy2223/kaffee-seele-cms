@@ -88,9 +88,10 @@ export const useCoffeeOrigins = () => {
   });
 };
 
-export const useHero = () => {
+export const useHero = (initialData?: IHero) => {
   return useQuery<IHero>({
     queryKey: ['hero'],
+    initialData,
     queryFn: async () => {
       const response = await fetch('/api/hero');
       if (!response.ok)

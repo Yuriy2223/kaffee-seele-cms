@@ -10,10 +10,29 @@ import { Events } from '@/components/Events/Events';
 import { ContactForm } from '@/components/ContactForm/ContactForm';
 import { ToastContainer } from 'react-toastify';
 
+async function getHeroData() {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/hero`,
+      {
+        cache: 'no-store',
+      }
+    );
+    if (!response.ok) throw new Error('Failed to fetch hero data');
+    const result = await response.json();
+    return result.data ?? result;
+  } catch (error) {
+    console.error('Error fetching hero data:', error);
+    return null;
+  }
+}
+
 export default async function Home() {
+  const heroData = await getHeroData();
+
   return (
     <main>
-      <Hero />
+      <Hero initialHero={heroData} />
       <Atmosphere />
       <OurMenu />
       <About />

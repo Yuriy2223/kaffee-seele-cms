@@ -8,9 +8,10 @@ import { CoffeeBackground } from '@/shared/CoffeeBackground';
 import { Heart, Coffee } from 'lucide-react';
 import { useScrollToSection } from '@/hooks/useScrollToSection';
 import { useHero } from '@/hooks/useMenu';
+import { IHero } from '@/shared/types';
 
-export const Hero = () => {
-  const { data: hero } = useHero();
+export const Hero = ({ initialHero }: { initialHero?: IHero }) => {
+  const { data: hero } = useHero(initialHero);
   const [displayText1, setDisplayText1] = useState('');
   const [displayText2, setDisplayText2] = useState('');
   const [currentIndex1, setCurrentIndex1] = useState(0);
@@ -25,8 +26,7 @@ export const Hero = () => {
     firstLine = '',
     secondLine = '',
     subtitle = '',
-    backgroundImage:
-      BACKGROUND_IMAGE_URL = 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&h=630',
+    backgroundImage: BACKGROUND_IMAGE_URL = '',
   } = hero || {};
 
   useEffect(() => {
