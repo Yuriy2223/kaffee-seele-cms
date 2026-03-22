@@ -302,7 +302,7 @@ export default function TermsOfUse() {
                       key={index}
                       className="flex items-start space-x-3 p-3 rounded-lg bg-cream"
                     >
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-cream">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-cream">
                         <span className="text-xs font-bold text-warm-brown">
                           {index + 1}
                         </span>
