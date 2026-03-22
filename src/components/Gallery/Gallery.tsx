@@ -101,7 +101,7 @@ export const Gallery = () => {
       <Container className="px-4 py-10">
         <div
           ref={headingRef as React.RefObject<HTMLDivElement>}
-          className={`text-center mb-16 transition-all duration-1000 ease-[var(--ease-spring)] ${
+          className={`text-center mb-16 transition-all duration-1000 ease-spring ${
             headingVisible
               ? 'opacity-100 translate-y-0 scale-100'
               : 'opacity-0 translate-y-12 scale-90'
@@ -128,7 +128,7 @@ export const Gallery = () => {
               role="tab"
               aria-selected={activeFilter === category.id}
               aria-controls="gallery-grid"
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-500 ease-[var(--ease-spring)] ${
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-500 ease-spring ${
                 activeFilter === category.id
                   ? 'bg-warm-brown text-warm-white shadow-lg scale-105'
                   : 'bg-white text-dark-text hover:bg-warm-brown/10 hover:scale-105'
@@ -153,7 +153,7 @@ export const Gallery = () => {
             <div
               key={image.id || index}
               role="gridcell"
-              className={`relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-1000 ease-[var(--ease-spring)] backface-hidden ${
+              className={`relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-1000 ease-spring backface-hidden ${
                 gridVisible
                   ? 'opacity-100 translate-y-0 rotate-y-0'
                   : 'opacity-0 translate-y-12 rotate-y-12'
